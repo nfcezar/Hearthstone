@@ -1,4 +1,4 @@
-package com.projects.core
+package com.projects.core.repository
 
 import com.projects.core.model.Card
 import com.projects.core.repository.CardInfoRepository

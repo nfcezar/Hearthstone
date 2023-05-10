@@ -5,6 +5,12 @@ import com.projects.core.repository.CardInfoRepository
 class GetDataCategoryUseCaseImpl(
     private val repository: CardInfoRepository
 ) : GetDataCategoryUseCase {
+    override suspend fun getCardId(): List<String> {
+        return repository.getData().map {
+            it.cardId
+        }
+    }
+
     override suspend fun getClassName(): List<String> {
         return repository.getData().map {
             it.cardClass

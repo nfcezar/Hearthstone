@@ -25,6 +25,19 @@ class GetDataCategoryUseCaseTest {
     }
 
     @Test
+    fun `when call getCardId should return card id`() = runBlocking {
+        coEvery { repository.getData() } returns mockListCard
+
+        val result = getDataCategoryUseCase.getCardId()
+
+        coVerify(exactly = 1) {
+            getDataCategoryUseCase.getCardId()
+        }
+
+        assertEquals(listOf("AT_019", "AT_029"), result)
+    }
+
+    @Test
     fun `when call getClassName should return class name`() = runBlocking {
         coEvery { repository.getData() } returns mockListCard
 

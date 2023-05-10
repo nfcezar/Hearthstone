@@ -6,7 +6,7 @@ import com.projects.core.repository.CardInfoRepositoryImpl
 import org.koin.dsl.module
 
 val coreModule = module {
-    factory<CardInfoRepository> {
+    single<CardInfoRepository> {
         CardInfoRepositoryImpl(
             HearthstoneInfoApiService.createInstance()
         )

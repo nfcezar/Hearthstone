@@ -1,7 +1,6 @@
 package com.projects.hearthstone
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.projects.feature.FragmentClickListener
 import com.projects.feature.ui.fragment.CardImageFragment
@@ -20,27 +19,15 @@ class MainActivity : AppCompatActivity(), FragmentClickListener {
 
         val homeFragment = HomeFragment()
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-        binding.toolbarTitle.text = "Hearthstone"
-        binding.toolbarBackBtn.visibility = View.GONE
-        binding.toolbarCategoryName.visibility = View.GONE
-
-        supportActionBar?.apply {
-            setDisplayShowTitleEnabled(false)
+        if (savedInstanceState == null) {
+            homeFragment.setFragmentClickListener(this)
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.container_fragment, homeFragment)
+                .addToBackStack("")
+                .setReorderingAllowed(true)
+                .commit()
         }
-
-        homeFragment.setFragmentClickListener(this)
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.container_fragment, homeFragment)
-            .commit()
-
-        /*        binding.toolbarTitle.visibility = View.GONE
-                binding.toolbar.apply {
-                    navigationIcon = getDrawable(com.projects.feature.R.drawable.baseline_arrow_back_ios_24)
-                }*/
     }
 
     override fun onFragmentButtonClick() {

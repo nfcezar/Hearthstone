@@ -1,8 +1,6 @@
 package com.projects.core.repository
 
 import com.projects.core.model.Card
-import com.projects.core.repository.CardInfoRepository
-import com.projects.core.repository.CardInfoRepositoryImpl
 import com.projects.core.service.HearthstoneApi
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -48,7 +46,6 @@ class CardInfoRepositoryTest {
                 type = "MINION",
                 race = null,
                 cardClass = "NEUTRAL",
-                imageUrl = null
             ),
             Card(
                 cardId = "AT_001",
@@ -56,7 +53,6 @@ class CardInfoRepositoryTest {
                 type = "SPELL",
                 race = null,
                 cardClass = "MAGE",
-                imageUrl = null
             )
         )
     }

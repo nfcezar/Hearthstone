@@ -51,7 +51,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.raceListNames.observe(viewLifecycleOwner) {
             binding.cardCategoryRaces.text = it.title
             binding.homeRecyclerViewRace.apply {
-                adapter = HomeRaceAdapter(it.cards)
+                adapter = HomeRaceAdapter(it.cards) {
+                    clickListener?.onFragmentButtonClick()
+                }
                 layoutManager = LinearLayoutManager(
                     context,
                     LinearLayoutManager.HORIZONTAL,
@@ -63,7 +65,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         viewModel.typeListNames.observe(viewLifecycleOwner) {
             binding.cardCategoryTypes.text = it.title
             binding.homeRecyclerViewType.apply {
-                adapter = HomeTypeAdapter(it.cards)
+                adapter = HomeTypeAdapter(it.cards) {
+                    clickListener?.onFragmentButtonClick()
+                }
                 layoutManager = LinearLayoutManager(
                     context,
                     LinearLayoutManager.HORIZONTAL,

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_gray">#202032</color>
+    <color name="gray">#707070</color>
+    <color name="coral_red">#F25E5E</color>
+    <color name="green">#6EC26D</color>
+    <color name="pink">#C55FA8</color>
+    <color name="purple">#C55FA8</color>
+    <color name="burlywood">#DF9E63</color>
+    <color name="yellow">#EFBA32</color>
+</resources>

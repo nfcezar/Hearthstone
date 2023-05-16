@@ -9,5 +9,4 @@ data class Card(
     val type: String?,
     val race: String?,
     val cardClass: String,
-    val imageUrl: String = "https://art.hearthstonejson.com/v1/render/latest/enUS/512x/"
 )

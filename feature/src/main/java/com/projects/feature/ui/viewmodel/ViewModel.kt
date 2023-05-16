@@ -24,29 +24,34 @@ class HomeViewModel(
     val typeListNames: LiveData<CardList>
         get() = _typeListNames
 
+    private val _image = MutableLiveData<List<Card>>()
+    val image: LiveData<List<Card>>
+        get() = _image
+
+
     init {
-        getData()
+        getInfoCard()
     }
 
-    private fun getData() {
+    private fun getInfoCard() {
         viewModelScope.launch {
+            val allCards = getCardDataUseCase.getCards()
+
+            val distinctClassCard = allCards.distinctBy { it.cardClass }
             _classNameList.value = CardList(
-                "Classes", getCardDataUseCase.getCards().distinctBy {
-                    it.cardClass
-                }
+                "Classes", distinctClassCard
             )
 
+            val distinctRace = allCards.distinctBy { it.race }
             _raceListNames.value = CardList(
-                "Types", getCardDataUseCase.getCards().distinctBy {
-                    it.race
-                }
+                "Races", distinctRace
             )
 
+            val distinctType = allCards.distinctBy { it.type }
             _typeListNames.value = CardList(
-                "Races", getCardDataUseCase.getCards().distinctBy {
-                    it.type
-                }
+                "Races", distinctType
             )
+            _image.value = allCards
         }
     }
 }

@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Base.Theme.Hearthstone" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
+    <style name="Theme.Hearthstone" parent="Base.Theme.Hearthstone" />
+</resources>

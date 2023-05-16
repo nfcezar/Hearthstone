@@ -7,12 +7,13 @@ import com.projects.feature.view.CustomCardInfoView
 import com.projects.feature.viewholder.HomeRaceViewHolder
 
 class HomeRaceAdapter(
-    private val items: List<Card>
+    private val items: List<Card>,
+    private val action: () -> Unit
 ) : RecyclerView.Adapter<HomeRaceViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRaceViewHolder {
         val view = CustomCardInfoView(parent.context)
-        return HomeRaceViewHolder(view)
+        return HomeRaceViewHolder(view, action)
     }
 
     override fun getItemCount(): Int {
@@ -22,6 +23,5 @@ class HomeRaceAdapter(
     override fun onBindViewHolder(holder: HomeRaceViewHolder, position: Int) {
         val item = items[position]
         return holder.onBindCard(item)
-
     }
 }

@@ -31,7 +31,10 @@ class CardImageFragment : Fragment(R.layout.fragment_card_image) {
         binding.toolbarBackBtn.apply {
             bringToFront()
             setOnClickListener {
-                //button logic
+                parentFragmentManager
+                    .beginTransaction()
+                    .remove(CardImageFragment())
+                    .commit()
             }
         }
 

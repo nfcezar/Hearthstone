@@ -21,10 +21,6 @@ class CardImageAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardImageViewHolder {
         val binding =
             CustomImageviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                .apply {
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                }
         return CardImageViewHolder(binding)
     }
 
